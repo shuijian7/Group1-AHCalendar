@@ -1,4 +1,4 @@
-# Group1-AHCalendar
+# Group1-Calendar
 
 ### Introduction
 
