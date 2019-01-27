@@ -1,11 +1,11 @@
 CREATE TABLE `Calendar` (
   `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `description` char(20) NOT NULL DEFAULT '',
-  `start_time` datetime NOT NULL,
-  `end_time` datetime NOT NULL,
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
   `title` char(20) DEFAULT NULL,
   `priority` char(20) DEFAULT NULL,
   `categories` char(20) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
