@@ -65,3 +65,56 @@ body {
     font-size: 4vh;
 }
 
+#event {
+    text-align: center;
+}
+
+dialog {
+    height: 50%;
+    width: 33.333%;
+    border: none;
+    padding: 0;
+
+    /*background-color: rgba(29, 29, 29, 0.85);*/*/
+    position: fixed;
+}
+
+.time, .dropdown {
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+#left {
+    display: inline-block;
+    width: 50%;
+}
+
+#right {
+    display: inline-block;
+    width: 50%;
+    float: right;
+}
+
+#description {
+    height: 10vh;
+    width: 85%;
+}
+
+#title {
+    font-size: 1.9vh;
+    width: 60%;
+}
+
+#textBox {
+    margin-left: 7.5%;
+    margin-bottom: 5%;
+}
+
+.buttons {
+    float: right;
+}
+
+#submit {
+    margin-right: 15%;
+}
+
