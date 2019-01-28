@@ -1,0 +1,8 @@
+{
+    "name": "group1calendar",
+    "version": "1.0.0",
+    "description": "unit test for js",
+    "scripts": {
+        "test": "jest"
+    }
+}
