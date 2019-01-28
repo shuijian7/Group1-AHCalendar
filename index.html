@@ -39,7 +39,7 @@
 			</tr>
 			<tbody id="table-body">
 				<tr>
-					<td class="border" onclick="dayClicked(this);">7</td>
+					<td class="border" onclick="dayClicked(this);">
 					<td class="border" onclick="dayClicked(this);">7</td>
 					<td class="border" onclick="dayClicked(this);">7</td>
 					<td class="border" onclick="dayClicked(this);">7</td>
@@ -134,7 +134,7 @@
 							<textarea name="description" id="description"></textarea>
 						</div>
 
-						<input type="submit" name="submit" value="Submit" id="submit" class="buttons" >
+						<input type="submit" name="submit" value="Submit" id="submit" class="buttons" onclick="display();">
 						<input type="submit" name="cancel" value="Cancel" id="cancel" class="buttons">
 					</form>
 				</div>
@@ -143,23 +143,13 @@
 			
 		</dialog>
 	</div>
-
-
-
 	
-
 	<script type="text/javascript" src="js/data.js"></script>
 	<script type="text/javascript" src="js/modal.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/note.js"></script>
-	<script type="text/javascript" src="js/start.js"></script>
 	<script type="text/javascript" src="js/date.js"></script>
+	<script type="text/javascript" src="js/start.js"></script>
 	
-	<script type="text/javascript">
-		updateCurrentDates();
-		fillInCalendar();
-	</script>
-	
-	<!-- <body onload="updateCalendarDates();"> -->
 </body>
 </html>

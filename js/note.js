@@ -1,13 +1,19 @@
 function dayClicked(e){
-    console.log(e.dataset.uid);
-    console.log(document.getElementById('hello'))
-    // document.getElementById('hello').innerHTML = "hello";
+    sessionStorage.setItem("year", data.calendar.year);
+    sessionStorage.setItem("month", data.calendar.month);
     document.getElementById('date').value = e.dataset.uid;
-    console.log(document.getElementById('date').value);
+    // data.calendar.month = 2;
+    // data.calendar.year = 2019;
+    // console.log(document.getElementById('date').value);
+    console.log(e.dataset.uid);
     data.post_its.current_post_it_id = e.dataset.uid;
     currentDayHasNote(data.post_its.current_post_it_id);
     openModal(2);
     openPostIt();
+}
+
+function display() {
+    
 }
 
 
