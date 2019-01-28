@@ -272,7 +272,20 @@ function getUID(month, year, day){
         month = 0;
         year++;
     }
-    return month.toString() + year.toString() + day.toString();
+    
+    monthString = month.toString();
+    yearString = year.toString();
+    dayString = day.toString();
+
+    if(day <= 9) {
+        dayString = "0" + dayString;
+    }
+
+    if(month <= 9) {
+        monthString = "0" + monthString;
+    }
+
+    return yearString + "-" + monthString + "-" + dayString;
 }
 
 
@@ -379,12 +392,12 @@ function previousMonth(){
 
 
 // This triggers the nextMonth() and previousMonth() with arrow keys.
-document.onkeydown = function(e) {
-    switch (e.keyCode) {
-        case 37: previousMonth(); break;
-        case 39: nextMonth(); break;
-    }
-};
+// document.onkeydown = function(e) {
+//     switch (e.keyCode) {
+//         case 37: previousMonth(); break;
+//         case 39: nextMonth(); break;
+//     }
+// };
 
 
 
