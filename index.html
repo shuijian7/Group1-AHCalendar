@@ -24,6 +24,7 @@
 						<h1 id="cal-year">2019</h1>
 						<i onclick="nextMonth();" class="fas fa-caret-right icon" id="rightArrow"></i>
 					</div>
+
 					
 				</th>
 			</tr>
@@ -85,12 +86,14 @@
 			</tbody>
 		</table>
 
+		
+
 		<dialog id="modal" closed>
 			<div id="make-note" hidden>
 				<div class = "popup">
 					<h2 id="event">Event</h2>
 					<form method="post">
-
+						<input type="hidden" id="id" name="id" value="1">
 						<div id="left">
 							<div class="time">
 								<label for="title">Title</label>

@@ -1,6 +1,7 @@
 function dayClicked(e){
-
-    console.log(e.dataset.uid);
+    document.getElementById('id').value = e.dataset.uid;
+    console.log(document.getElementById('id').value);
+    console.log("hi");
     data.post_its.current_post_it_id = e.dataset.uid;
     currentDayHasNote(data.post_its.current_post_it_id);
     openModal(2);
