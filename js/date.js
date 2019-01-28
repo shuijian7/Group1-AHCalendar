@@ -1,4 +1,6 @@
 function fillInCalendar(){
+    console.log("day");
+    console.log(data.calendar.year);
     updateCalendarDates();
     var monthToFillIn = {};
     var previousMonthIndex;
