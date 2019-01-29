@@ -148,9 +148,9 @@ function getUID(month, year, day){
         month = 0;
         year++;
     }
-    monthString = month.toString();
-    yearString = year.toString();
-    dayString = day.toString();
+    monthString = "" + month;
+    yearString = "" + year;
+    dayString = "" + day;
 
     if(day <= 9) {
         dayString = "0" + dayString;
@@ -242,9 +242,13 @@ function previousMonth(){
 }
 
 //For unit test
-module.exports = { getUID: getUID };
-module.exports = { fillPartialMonthData: fillPartialMonthData };
-module.exports = { appendSpriteToCellAndTooltip: appendSpriteToCellAndTooltip };
+module.exports = {
+    getUID: getUID,
+    fillPartialMonthData: fillPartialMonthData,
+    appendSpriteToCellAndTooltip: appendSpriteToCellAndTooltip,
+    fillInCalendar: fillInCalendar
+};
+
 
 // // This functions fills in all the calendar data.  It is called when the program starts and when the month is changed.
 // function fillInCalendar(){

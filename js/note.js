@@ -83,4 +83,11 @@ function deleteNote(){
     var template = document.getElementById("make-note").setAttribute("hidden", "hidden");
     modal.classList.add("fade-out");
 }
-        
+
+
+//for unit tests
+module.exports = {
+    openPostIt: openPostIt,
+    getRandom: getRandom,
+    currentDayHasNote: currentDayHasNote
+}

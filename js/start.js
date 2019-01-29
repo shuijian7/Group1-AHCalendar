@@ -18,4 +18,5 @@ function start(){
 start();
 sessionStorage.setItem("flag", "true");
 
-
+//for unit tests
+module.exports = { start: start};

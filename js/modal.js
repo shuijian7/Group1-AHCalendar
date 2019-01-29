@@ -32,3 +32,9 @@ modal.addEventListener("animationend", function(){
         closeModal();
     }
 });
+
+//for unit test
+module.exports = {
+    modal: modal,
+    closeModal: closeModal,
+};
