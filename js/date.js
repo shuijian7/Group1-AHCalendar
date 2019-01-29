@@ -164,7 +164,6 @@ function getUID(month, year, day){
 }
 
 
-
 function appendSpriteToCellAndTooltip(uid, elem){
     for(let i = 0; i < post_its.length; i++){
         if(uid == post_its[i].id){
@@ -241,6 +240,11 @@ function previousMonth(){
     sessionStorage.setItem("month", data.calendar.month);
     fillInCalendar();
 }
+
+//For unit test
+module.exports = { getUID: getUID };
+module.exports = { fillPartialMonthData: fillPartialMonthData };
+module.exports = { appendSpriteToCellAndTooltip: appendSpriteToCellAndTooltip };
 
 // // This functions fills in all the calendar data.  It is called when the program starts and when the month is changed.
 // function fillInCalendar(){
