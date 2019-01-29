@@ -186,7 +186,6 @@
 <script type="text/javascript" src="js/data.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="test/date.test.js"></script>
 <script type="text/javascript" src="js/note.js"></script>
 <script type="text/javascript" src="js/date.js"></script>
 <script type="text/javascript" src="js/start.js"></script>
