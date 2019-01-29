@@ -1,7 +1,6 @@
 <?php
-    require "../config.php";
-    require "../common.php";
-    $db = new PDO($server, $user, $pass , $dbname , $port)
+    include (connectdata.txt);
+    $db = mysqli_connect($server, $user, $pass , $dbname)
     or die('Error connecting to sql server.');
 
 
@@ -72,4 +71,5 @@ mysqli_free_result($result);
 mysqli_close($db);
 ?>
 </body>
+<center><h2><a onclick = "return confirm('Are you sure to delete this advertisement?')" href ="delete.php?id=<?php echo $row['id'];?>">Delete</a></h2></center>
 </html>
