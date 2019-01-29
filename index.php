@@ -1,7 +1,41 @@
-<!DOCTYPE html>
-<html>
+<?php
+    
+    
+    if (isset($_POST['submit'])) {
+        require "../config.php";
+        require "../common.php";
+        
+        try {
+            $connection = new PDO($dsn, $username, $password, $options);
+            
+            $new_event = array(
+                               "date" => $_POST['date'],
+                               "title"  => $_POST['title'],
+                               "start_time" => $_POST['start_time'],
+                               "end_time"  => $_POST['end_time'],
+                               "description"     => $_POST['description'],
+                               "priority"       => $_POST['priority'],
+                               "categories"  => $_POST['categories'],
+                               );
+            
+            $sql = sprintf(
+                           "INSERT INTO %s (%s) values (%s)",
+                           "Calendar",
+                           implode(", ", array_keys($new_event)),
+                           ":" . implode(", :", array_keys($new_event))
+                           );
+            
+            $statement = $connection->prepare($sql);
+            $statement->execute($new_event);
+        } catch(PDOException $error) {
+            echo $sql . "<br>" . $error->getMessage();
+        }
+        
+    }
+    ?>
+
 <head>
-	<title>Calendar 3</title>
+	<title>Calendar</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/note.css">
 	<script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
@@ -86,12 +120,14 @@
 			</tbody>
 		</table>
 
+		
+
 		<dialog id="modal" closed>
 			<div id="make-note" hidden>
 				<div class = "popup">
 					<h2 id="event">Event</h2>
 					<form method="post">
-						<input type="hidden" id="date" name="id" value="1">
+						<input type="hidden" id="date" name="date" value="1">
 						<div id="left">
 							<div class="time">
 								<label for="title">Title</label>
@@ -99,21 +135,21 @@
 							</div>
 
 							<div class="time">
-								<label for="starttime">Start Time</label>
-								<input type="time" name="starttime" id="starttime">
+								<label for="start_time">Start Time</label>
+								<input type="time" name="start_time" id="start_time">
 							</div>
 						
 							<div class="time">
-								<label for="endtime">End Time</label>
-								<input type="time" name="endtime" id="end">
+								<label for="end_time">End Time</label>
+								<input type="time" name="end_time" id="end_time">
 							</div>
 						</div> <!-- end left -->
 
 
 						<div id="right">
 							<div class="dropdown">
-								<label for="category">Category</label>
-									<select name="category">
+								<label for="categories">Category</label>
+									<select name="categories">
 							  			<option value="Work">Work</option>
 							  			<option value="Home">Home</option>
 							  			<option value="School">School</option>
@@ -143,14 +179,16 @@
 			
 		</dialog>
 	</div>
+
+
+
 	
-	<script type="text/javascript" src="js/data.js"></script>
-	<script type="text/javascript" src="js/modal.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
-	<script type="text/javascript" src="test/date.test.js"></script>
-	<script type="text/javascript" src="js/note.js"></script>
-	<script type="text/javascript" src="js/date.js"></script>
-	<script type="text/javascript" src="js/start.js"></script>
-	
+<script type="text/javascript" src="js/data.js"></script>
+<script type="text/javascript" src="js/modal.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="test/date.test.js"></script>
+<script type="text/javascript" src="js/note.js"></script>
+<script type="text/javascript" src="js/date.js"></script>
+<script type="text/javascript" src="js/start.js"></script>
 </body>
 </html>
