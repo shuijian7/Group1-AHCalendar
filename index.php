@@ -170,7 +170,7 @@
 							<textarea name="description" id="description"></textarea>
 						</div>
 
-						<input type="submit" name="submit" value="Submit" id="submit" class="buttons" onclick="display();">
+						<input type="submit" name="submit" value="Submit" id="submit" class="buttons">
 						<input type="submit" name="cancel" value="Cancel" id="cancel" class="buttons">
 					</form>
 				</div>

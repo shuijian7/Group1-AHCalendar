@@ -193,27 +193,10 @@ var month_data = [
 ];
 
 var data = {
-    current_modal_popup: 0,
-    current_color: {
-        color_name: "blue",
-        color: "#1B19CD",
-        off_color: "#7C7EFB"
-    },
-    current_date: {
-        day: "Default",
-        date: "Default",
-        month: "Default",
-        year: "Default"
-    },
     calendar: {
         month: "Default",
         year: "Default"
     },
-    post_its: {
-        current_post_it_id: 0,
-        current_post_it_index: 0,
-        current_post_it_new: true
-    }
 };
 
 var post_its = [
