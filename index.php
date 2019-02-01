@@ -1,12 +1,12 @@
 <?php
-    
+    require "../config.php";
+	require "../common.php";
+
+	$connection = new PDO($dsn, $username, $password, $options);
     
     if (isset($_POST['submit'])) {
-        require "../config.php";
-        require "../common.php";
         
         try {
-            $connection = new PDO($dsn, $username, $password, $options);
             
             $new_event = array(
                                "date" => $_POST['date'],
@@ -18,21 +18,51 @@
                                "categories"  => $_POST['categories'],
                                );
             
-            $sql = sprintf(
+            $sql1 = sprintf(
                            "INSERT INTO %s (%s) values (%s)",
                            "Calendar",
                            implode(", ", array_keys($new_event)),
                            ":" . implode(", :", array_keys($new_event))
                            );
             
-            $statement = $connection->prepare($sql);
-            $statement->execute($new_event);
+            $state = $connection->prepare($sql1);
+            $state->execute($new_event);
         } catch(PDOException $error) {
-            echo $sql . "<br>" . $error->getMessage();
+            echo $sql1 . "<br>" . $error->getMessage();
         }
         
     }
-    ?>
+
+
+
+	try {
+
+	  $sql = "SELECT * FROM Calendar";
+
+	  $statement = $connection->prepare($sql);
+	  $statement->execute();
+
+	  $events = $statement->fetchAll();
+
+	} catch(PDOException $error) {
+	  echo $sql . "<br>" . $error->getMessage();
+	}
+
+	$all_events = array();
+	  $counter = 0;
+	  foreach ($events as $item) {
+	    $all_events[$counter] = $item;
+	    $counter++;
+	  }
+
+	  echo $all_events[0]["id"];
+?>
+
+
+
+
+
+
 
 <head>
 	<title>Calendar</title>
@@ -73,7 +103,7 @@
 			</tr>
 			<tbody id="table-body">
 				<tr>
-					<td class="border" onclick="dayClicked(this);">
+					<td class="border" onclick="dayClicked(this);">7</td>
 					<td class="border" onclick="dayClicked(this);">7</td>
 					<td class="border" onclick="dayClicked(this);">7</td>
 					<td class="border" onclick="dayClicked(this);">7</td>
@@ -121,64 +151,77 @@
 		</table>
 
 		
-
-		<dialog id="modal" closed>
-			<div id="make-note" hidden>
-				<div class = "popup">
-					<h2 id="event">Event</h2>
-					<form method="post">
-						<input type="hidden" id="date" name="date" value="1">
-						<div id="left">
-							<div class="time">
-								<label for="title">Title</label>
-								<input type="text" id="title" name="title">
-							</div>
-
-							<div class="time">
-								<label for="start_time">Start Time</label>
-								<input type="time" name="start_time" id="start_time">
-							</div>
-						
-							<div class="time">
-								<label for="end_time">End Time</label>
-								<input type="time" name="end_time" id="end_time">
-							</div>
-						</div> <!-- end left -->
-
-
-						<div id="right">
-							<div class="dropdown">
-								<label for="categories">Category</label>
-									<select name="categories">
-							  			<option value="Work">Work</option>
-							  			<option value="Home">Home</option>
-							  			<option value="School">School</option>
-									</select>
-							</div>
-							<div class="dropdown">
-								<label for="priority">Priority</label>
-									<select name="priority">
-							  			<option value="Low">Low</option>
-							  			<option value="Medium">Medium</option>
-							  			<option value="High">High</option>
-									</select>
-							</div>
-						</div> <!-- end right -->
-
-						<div id="textBox">
-							<label for="description">Description</label>
-							<textarea name="description" id="description"></textarea>
+	<dialog id="modal" closed>
+		<div id="make-note" hidden>
+			<div class = "popup">
+				<h2 id="event">Event</h2>
+				<form method="post">
+					<input type="hidden" id="date" name="date" value="1">
+					<div id="left">
+						<div class="time">
+							<label for="title">Title</label>
+							<input type="text" id="title" name="title">
 						</div>
 
-						<input type="submit" name="submit" value="Submit" id="submit" class="buttons">
-						<input type="submit" name="cancel" value="Cancel" id="cancel" class="buttons">
-					</form>
-				</div>
+						<div class="time">
+							<label for="start_time">Start Time</label>
+							<input type="time" name="start_time" id="start_time">
+						</div>
+					
+						<div class="time">
+							<label for="end_time">End Time</label>
+							<input type="time" name="end_time" id="end_time">
+						</div>
+					</div> <!-- end left -->
+
+
+					<div id="right">
+						<div class="dropdown">
+							<label for="categories">Category</label>
+								<select name="categories">
+						  			<option value="Work">Work</option>
+						  			<option value="Home">Home</option>
+						  			<option value="School">School</option>
+								</select>
+						</div>
+						<div class="dropdown">
+							<label for="priority">Priority</label>
+								<select name="priority">
+						  			<option value="Low">Low</option>
+						  			<option value="Medium">Medium</option>
+						  			<option value="High">High</option>
+								</select>
+						</div>
+					</div> <!-- end right -->
+
+					<div id="textBox">
+						<label for="description">Description</label>
+						<textarea name="description" id="description"></textarea>
+					</div>
+
+					<input type="submit" name="submit" value="Submit" id="submit" class="buttons">
+					<input type="submit" name="cancel" value="Cancel" id="cancel" class="buttons">
+				</form>
+			</div>
 
 			</div>
-			
-		</dialog>
-	</div>
+		
+		</div>
+	</dialog>
+
+	<form>
+		<div id="test123" hidden>
+			<label for="description">Description</label>
+			<textarea name="description" id="description"></textarea>
+		</div>
+		<input type="submit" name="submit" value="Submit" id="submit" class="buttons">
+		<input type="submit" name="cancel" value="Cancel" id="cancel" class="buttons">
+	</form>
+
+	<script type="text/javascript">
+		var jsEvents = <?php echo json_encode($all_events);?>;
+
+	</script>
 
 
 

@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.2)), url("../img/woodBackground.jpg");
+    background-image: url("../img/woodBackground.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -117,5 +117,9 @@ dialog {
 
 #submit {
     margin-right: 15%;
+}
+
+.hello {
+    color: red;
 }
 

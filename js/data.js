@@ -193,6 +193,7 @@ var month_data = [
 ];
 
 var data = {
+    current_modal_popup:0,
     calendar: {
         month: "Default",
         year: "Default"

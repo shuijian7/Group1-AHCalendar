@@ -16,9 +16,6 @@ function fillInCalendar(){
     
     
     for(let i = 0; i < days.length; i++){
-        
-        for(let j )
-        days[i].innerHTML = '<span></span>'
 
         // Filling current month.
         if(monthToFillIn.starting_day <= i && currentMonthCount <= monthToFillIn.amount_of_days){
@@ -41,6 +38,9 @@ function fillInCalendar(){
 function updateCurrentDates(){
 
     const today = new Date();
+    let date = today.getDate();
+    let day = today.getDay();
+
     // console.log(today);
     let month = today.getMonth();
     let year = today.getFullYear();
@@ -83,12 +83,45 @@ function updateCalendarDates1(month, year){
 
 
 function fillPartialMonthData(day, count, monthObject, month){
+
+
     day.innerHTML = count;
     uid = getUID(monthObject.month_index, monthObject.year, count);
+    day.setAttribute("id", uid);
     day.setAttribute("data-uid", uid);
-    appendSpriteToCellAndTooltip(uid, day);
+
+    for (var i = 0; i<jsEvents.length; i++){
+
+        if(jsEvents[i]["date"]==uid) {
+
+            var node = document.createElement('div');
+            var title = document.createTextNode(jsEvents[i]["description"]);
+            node.classList.add("hello");
+            node.setAttribute("id", jsEvents[i]["id"]);
+            node.appendChild(title);
+
+            day.appendChild(node);
+            assignClick(jsEvents[i]["id"]);
+        }
+    }
 }
 
+function assignClick(id) {
+    var elem = document.getElementById(id);
+    elem.onclick = click;
+    
+}
+
+function click() {
+    var modal = document.getElementById("modal");
+    modal.open = false;
+    // document.getElementById("modal").style.visibility = "hidden";
+    // document.getElementById("make-note").style.visibility = "hidden";
+    alert("hello");
+    console.log("hello");
+    // document.getElementById("modal").style.visibility = "visible";
+    // document.getElementById("make-note").style.visibility = "visibile";
+}
 
 
 
