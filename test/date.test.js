@@ -1,10 +1,10 @@
-const { getUID } = require('../js/date');
-const { previousMonth } = require('../js/date');
-const { fillPartialMonthData } = require('../js/date');
-const { nextMonth } = require('../js/date');
-const { updateCurrentDates } = require('../js/date');
-const { click } = require('../js/date');
-const { appendSpriteToCellAndTooltip } = require('../js/date');
+const {getUID} = require('../js/date');
+const {previousMonth} = require('../js/date');
+const {fillPartialMonthData} = require('../js/date');
+const {nextMonth} = require('../js/date');
+const {updateCurrentDates} = require('../js/date');
+const {click} = require('../js/date');
+const {appendSpriteToCellAndTooltip} = require('../js/date');
 
 test("check getUID behavior/property", () => {
     expect(getUID).toBeDefined;
