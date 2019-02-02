@@ -120,6 +120,60 @@ dialog {
 }
 
 .hello {
-    color: red;
+    font-size: 2vh;
+    margin-bottom: 5%;
+
 }
 
+.time {
+    margin-left: 10%;
+}
+
+.btn {
+    float: right;
+}
+
+.displayTable td {
+    text-align: center;
+}
+
+#display1 {
+    height: 24%;
+    width: 47%;
+}
+
+#display1 tbody td {
+     height: 7vh;
+}
+
+/*.inline {
+    display: inline;
+    align-content: center;
+    margin-left: 4%
+}*/
+
+.divCover {
+    width: auto;
+    display: inline-block;
+    text-align: center;
+    margin-left: 2%;
+    /*overflow: auto;*/
+
+}
+
+#make-note2 {
+    text-align: center;
+}
+
+.secondForm {
+    margin-right: 2%;
+    margin-top: 6%;
+}
+
+.first {
+    font-weight: bold;
+}
+
+.paragraph {
+    width: 10ch;
+}

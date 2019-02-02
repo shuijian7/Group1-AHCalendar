@@ -3,18 +3,15 @@ function dayClicked(e){
     sessionStorage.setItem("month", data.calendar.month);
     date = e.dataset.uid;
 
-    console.log(jsEvents[0]["date"] == date);
+    // console.log(jsEvents[0]["date"] == date);
     document.getElementById('date').value = e.dataset.uid;
-    console.log(e.dataset.uid);
+    // console.log(e.dataset.uid);
     var modal = document.getElementById("modal");
     modal.open = true;
     openPostIt();
     // e.targetSrc.data['eventid']
 }
 
-function display() {
-    
-}
 
 
 function openPostIt(){

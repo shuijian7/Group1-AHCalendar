@@ -4,7 +4,7 @@
 
 	$connection = new PDO($dsn, $username, $password, $options);
     
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['add'])) {
         
         try {
             
@@ -30,14 +30,14 @@
         } catch(PDOException $error) {
             echo $sql1 . "<br>" . $error->getMessage();
         }
+    header('Location:index.php');
         
     }
 
 
-
 	try {
 
-	  $sql = "SELECT * FROM Calendar";
+	  $sql = "SELECT * FROM Calendar ORDER BY start_time ASC";
 
 	  $statement = $connection->prepare($sql);
 	  $statement->execute();
@@ -55,12 +55,23 @@
 	    $counter++;
 	  }
 
-	  echo $all_events[0]["id"];
+
+
+if (isset($_POST['delete'])) {
+    try {
+        $id = $_POST["date123"];
+        
+        $sql = "DELETE FROM Calendar WHERE id = :id";
+        
+        $statement = $connection->prepare($sql);
+        $statement->bindValue(':id', $id);
+        $statement->execute();
+    } catch(PDOException $error) {
+        echo $sql . "<br>" . $error->getMessage();
+    }
+header('Location:index.php');
+}
 ?>
-
-
-
-
 
 
 
@@ -103,49 +114,49 @@
 			</tr>
 			<tbody id="table-body">
 				<tr>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
 				</tr>
 				<tr>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
 				</tr>
 				<tr>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
 				</tr>
 				<tr>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
 				</tr>
 				<tr>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
-					<td class="border" onclick="dayClicked(this);">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
+					<td class="border">7</td>
 				</tr>
 			</tbody>
 		</table>
@@ -156,21 +167,21 @@
 			<div class = "popup">
 				<h2 id="event">Event</h2>
 				<form method="post">
-					<input type="hidden" id="date" name="date" value="1">
+					<input type="hidden" id="date" name="date" value="1" required>
 					<div id="left">
 						<div class="time">
 							<label for="title">Title</label>
-							<input type="text" id="title" name="title">
+							<input type="text" id="title" name="title" required maxlength="15">
 						</div>
 
 						<div class="time">
 							<label for="start_time">Start Time</label>
-							<input type="time" name="start_time" id="start_time">
+							<input type="time" name="start_time" id="start_time" required>
 						</div>
 					
 						<div class="time">
 							<label for="end_time">End Time</label>
-							<input type="time" name="end_time" id="end_time">
+							<input type="time" name="end_time" id="end_time" required>
 						</div>
 					</div> <!-- end left -->
 
@@ -178,7 +189,7 @@
 					<div id="right">
 						<div class="dropdown">
 							<label for="categories">Category</label>
-								<select name="categories">
+								<select name="categories" required>
 						  			<option value="Work">Work</option>
 						  			<option value="Home">Home</option>
 						  			<option value="School">School</option>
@@ -186,7 +197,7 @@
 						</div>
 						<div class="dropdown">
 							<label for="priority">Priority</label>
-								<select name="priority">
+								<select name="priority" required>
 						  			<option value="Low">Low</option>
 						  			<option value="Medium">Medium</option>
 						  			<option value="High">High</option>
@@ -196,41 +207,128 @@
 
 					<div id="textBox">
 						<label for="description">Description</label>
-						<textarea name="description" id="description"></textarea>
+						<textarea name="description" id="description" required maxlength="30"></textarea>
 					</div>
 
-					<input type="submit" name="submit" value="Submit" id="submit" class="buttons">
-					<input type="submit" name="cancel" value="Cancel" id="cancel" class="buttons">
+					<input type="submit" name="add" value="Submit" id="add" class="buttons">
+					<input type="button" name="cancel" onClick="document.location.href= 'index.php';" class="buttons" value="Cancel"/>
+					<!-- <input type="button" onclick = "window.location(index.php)" class="buttons" value="Cancel"> -->
+				</form>
+			</div>
+	
+		</div>
+	</dialog>
+	<dialog id="edit" closed>
+		<div id="make-note1" hidden>
+			<div class = "popup">
+				<h2 id="event">Event</h2>
+				<form id="edit_form" method="post">
+					<input type="hidden" id="date123" name="date123" value="1">
+					<div id="left">
+						<div class="time">
+							<label for="title">Title</label>
+							<input type="text" id="title123" name="title"  maxlength="15">
+						</div>
+
+						<div class="time">
+							<label for="start_time">Start Time</label>
+							<input type="time" name="start_time" id="start_time" >
+						</div>
+					
+						<div class="time">
+							<label for="end_time">End Time</label>
+							<input type="time" name="end_time" id="end_time" >
+						</div>
+					</div> <!-- end left -->
+
+
+					<div id="right">
+						<div class="dropdown">
+							<label for="categories">Category</label>
+								<select name="categories" >
+						  			<option value="Work">Work</option>
+						  			<option value="Home">Home</option>
+						  			<option value="School">School</option>
+								</select>
+						</div>
+						<div class="dropdown">
+							<label for="priority">Priority</label>
+								<select name="priority" >
+						  			<option value="Low">Low</option>
+						  			<option value="Medium">Medium</option>
+						  			<option value="High">High</option>
+								</select>
+						</div>
+					</div> <!-- end right -->
+
+					<div id="textBox">
+						<label for="description">Description</label>
+						<textarea name="description" id="description" maxlength="30"></textarea>
+					</div>
+					<input type="submit" name="submit" value="Edit" id="edit" class="buttons">
+					<input type="submit" name="delete" value="Delete" id="delete" class="buttons">
+					<input type="button" name="cancel" onClick="document.location.href= 'index.php';" class="buttons1" value="Cancel"/>
 				</form>
 			</div>
 
 			</div>
 		
-		</div>
 	</dialog>
 
-	<form>
-		<div id="test123" hidden>
-			<label for="description">Description</label>
-			<textarea name="description" id="description"></textarea>
+	<dialog id="display1" closed>
+		<div id="make-note2" hidden>
+				<h2 id="event">Event</h2>
+						<div class="divCover">
+							<div class="inline first">Event Title</div>
+							<div id="displayTitle" class="inline">a</div>
+						</div>
+						<div class="divCover">
+							<div class="inline first">Start Time</div>
+							<div id="displayStart_Time" class="inline">a</div>
+						</div>
+						<div class="divCover">
+							<div class="inline first">End Time</div>
+							<div id="displayEnd_Time" class="inline">a</div>
+						</div>
+						<div class="divCover">
+							<div class="inline first">Description</div>
+							<div id="displayDescription" class="inline">a</div>
+						</div>
+						<div class="divCover">
+							<div class="inline first">Priority</div>
+							<div id="displayPriority" class="inline">a</div>
+						</div>
+
+						<div class="divCover">
+							<div class="inline first">Categories</div>
+							<div id="displayCategories" class="inline">a</div>
+						</div>
+						
+					<form>
+						<input type="button" name="cancel" onClick="document.location.href= 'index.php';" class="buttons secondForm" value="Close"/>	
+					</form>
+				</table>
+		
 		</div>
-		<input type="submit" name="submit" value="Submit" id="submit" class="buttons">
-		<input type="submit" name="cancel" value="Cancel" id="cancel" class="buttons">
-	</form>
+	</dialog>
+</div>
 
-	<script type="text/javascript">
-		var jsEvents = <?php echo json_encode($all_events);?>;
 
-	</script>
+
+
 
 
 
 	
+</body>
+<script type="text/javascript">
+		var jsEvents = <?php echo json_encode($all_events);?>;
+
+</script>
 <script type="text/javascript" src="js/data.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/note.js"></script>
 <script type="text/javascript" src="js/date.js"></script>
 <script type="text/javascript" src="js/start.js"></script>
-</body>
 </html>

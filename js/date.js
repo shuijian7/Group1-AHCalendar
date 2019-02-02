@@ -89,38 +89,100 @@ function fillPartialMonthData(day, count, monthObject, month){
     uid = getUID(monthObject.month_index, monthObject.year, count);
     day.setAttribute("id", uid);
     day.setAttribute("data-uid", uid);
+    day.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dayClicked(day);
+    }, false);
 
-    for (var i = 0; i<jsEvents.length; i++){
+    jsEvents.forEach(function(event){
 
-        if(jsEvents[i]["date"]==uid) {
+        if(event["date"]==uid) {
 
             var node = document.createElement('div');
-            var title = document.createTextNode(jsEvents[i]["description"]);
+
+            var title = document.createElement('span');
+            var time = document.createElement('span');
+            //var image = document.createElement('img');
+            var btn = document.createElement("BUTTON");
+
+            var titleChild = document.createTextNode(event["title"]);
+            var timeChild = document.createTextNode(event["start_time"]);
+
+
+            //image.classList.add("fas");
+            //image.classList.add("fa-edit");
+
+            title.appendChild(titleChild);
+            time.appendChild(timeChild);
+
+            title.addEventListener('click', function(e) {
+                e.stopPropagation();
+                display(event);
+            }, true);
+
+            time.addEventListener('click', function(e) {
+                e.stopPropagation();
+                display(event);
+                console.log(event);
+            }, true);
+
+            btn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                editOrDelete(event);
+            }, true);
+
+            title.setAttribute("id", event["id"]);
+            time.setAttribute("id", event["id"]);
+            btn.classList.add("btn");
+
+            time.classList.add("time");
+            btn.setAttribute("id", event["id"]);
             node.classList.add("hello");
-            node.setAttribute("id", jsEvents[i]["id"]);
+            node.setAttribute("id", ["id"]);
             node.appendChild(title);
+            node.appendChild(time);
+            node.appendChild(btn);
 
             day.appendChild(node);
-            assignClick(jsEvents[i]["id"]);
         }
-    }
+    });
 }
 
-function assignClick(id) {
-    var elem = document.getElementById(id);
-    elem.onclick = click;
-    
+
+function editOrDelete(id) {
+    // console.log("hello");
+    // console.log(id);
+    var elem = id['id'];
+    var title = id['title'];
+
+    console.log("here");
+    console.log(document.getElementById("date123"));
+
+
+    var modal = document.getElementById("edit");
+    modal.open = true;
+    var template = document.getElementById("make-note1");
+    template.removeAttribute("hidden");
+    document.getElementById("date123").innerHTML = elem;
+    document.getElementById("date123").value = elem;
+
+
+
+    console.log(elem);
 }
 
-function click() {
-    var modal = document.getElementById("modal");
-    modal.open = false;
-    // document.getElementById("modal").style.visibility = "hidden";
-    // document.getElementById("make-note").style.visibility = "hidden";
-    alert("hello");
-    console.log("hello");
-    // document.getElementById("modal").style.visibility = "visible";
-    // document.getElementById("make-note").style.visibility = "visibile";
+
+function display(event) {
+    var modal = document.getElementById("display1");
+    modal.open = true;
+    var template = document.getElementById("make-note2");
+    template.removeAttribute("hidden");
+        document.getElementById("displayTitle").innerHTML = event["title"];
+        document.getElementById("displayStart_Time").innerHTML = event["start_time"];
+        document.getElementById("displayEnd_Time").innerHTML = event["end_time"];
+        document.getElementById("displayDescription").innerHTML = event["description"];
+        document.getElementById("displayPriority").innerHTML = event["priority"];
+        document.getElementById("displayCategories").innerHTML = event["categories"];
 }
 
 
