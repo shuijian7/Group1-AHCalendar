@@ -1,4 +1,4 @@
-var month_data = [
+var month_data = new Array(
     {
         month_index: 11,
         amount_of_days: 31,
@@ -190,7 +190,7 @@ var month_data = [
         starting_day: 5,
         year: 2021
     }
-];
+);
 
 var data = {
     current_modal_popup:0,
@@ -207,3 +207,11 @@ var post_its = [
     
 ];
 
+// for unit tests
+module.exports = {
+    month_data_array: function() {
+        var array = new Array;
+        array = month_data;
+        return array;
+    }
+}

@@ -35,3 +35,9 @@ function openPostIt(){
     // }
 }
 
+
+// for unit tests
+module.exports = {
+    dayClicked: dayClicked,
+    openPostIt: openPostIt
+}

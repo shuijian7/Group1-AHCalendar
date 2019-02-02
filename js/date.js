@@ -251,4 +251,15 @@ function previousMonth(){
 }
 
 
-
+//for unit tests
+module.exports = { 
+    getUID: getUID,
+    previousMonth: previousMonth,
+    fillPartialMonthData: fillPartialMonthData,
+    nextMonth: nextMonth,
+    updateCurrentDates: updateCurrentDates,
+    click: click,
+    appendSpriteToCellAndTooltip: appendSpriteToCellAndTooltip,
+    nextMonth: nextMonth,
+    previousMonth: previousMonth
+};
