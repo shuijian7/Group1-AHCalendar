@@ -11,8 +11,6 @@ function removeAttribute(elem, attrName){
     }
 }
 
-
-// for unit tests
 module.exports = {
     removeClass: removeClass,
     removeAttribute: removeAttribute

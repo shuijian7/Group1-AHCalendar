@@ -1,9 +1,9 @@
 <?php
-    require "../config.php";
-	require "../common.php";
+    require "./config.php";
+	require "./common.php";
 
 	$connection = new PDO($dsn, $username, $password, $options);
-    
+	
     if (isset($_POST['add'])) {
         
         try {
@@ -22,9 +22,9 @@
                            "INSERT INTO %s (%s) values (%s)",
                            "Calendar",
                            implode(", ", array_keys($new_event)),
-                           ":" . implode(", :", array_keys($new_event))
+                           "'".implode("', '", array_values($new_event))."'"
                            );
-            
+
             $state = $connection->prepare($sql1);
             $state->execute($new_event);
         } catch(PDOException $error) {

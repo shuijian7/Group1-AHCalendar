@@ -207,11 +207,4 @@ var post_its = [
     
 ];
 
-// for unit tests
-module.exports = {
-    month_data_array: function() {
-        var array = new Array;
-        array = month_data;
-        return array;
-    }
-}
+module.exports = { month_data: month_data, data: data };

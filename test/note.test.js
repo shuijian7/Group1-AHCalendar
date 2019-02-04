@@ -25,6 +25,8 @@
 const { dayClicked } = require('../js/note');
 const { openPostIt } = require('../js/note');
 
+
+
 test("check dayClicked behavior/property", () => {
     expect(dayClicked).toBeDefined;
     expect(dayClicked).toBeInstanceOf(Function);

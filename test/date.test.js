@@ -3,8 +3,8 @@ const {previousMonth} = require('../js/date');
 const {fillPartialMonthData} = require('../js/date');
 const {nextMonth} = require('../js/date');
 const {updateCurrentDates} = require('../js/date');
-const {click} = require('../js/date');
 const {appendSpriteToCellAndTooltip} = require('../js/date');
+
 
 test("check getUID behavior/property", () => {
     expect(getUID).toBeDefined;
@@ -39,13 +39,6 @@ test("check updateCurrentDates behavior/property", () => {
     expect(updateCurrentDates).toBeInstanceOf(Function);
     expect(updateCurrentDates).toHaveReturned;
     expect(updateCurrentDates).toHaveBeenCalled;
-});
-
-test("check click behavior/property", () => {
-    expect(click).toBeDefined;
-    expect(click).toBeInstanceOf(Function);
-    expect(click).toHaveReturned;
-    expect(click).toHaveBeenCalled;
 });
 
 test("check appendSpriteToCellAndTooltip behavior/property", () => {

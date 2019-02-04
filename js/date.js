@@ -258,7 +258,6 @@ module.exports = {
     fillPartialMonthData: fillPartialMonthData,
     nextMonth: nextMonth,
     updateCurrentDates: updateCurrentDates,
-    click: click,
     appendSpriteToCellAndTooltip: appendSpriteToCellAndTooltip,
     nextMonth: nextMonth,
     previousMonth: previousMonth
