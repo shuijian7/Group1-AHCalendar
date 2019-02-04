@@ -1,60 +1,59 @@
 <?php
-    require "./config.php";
-	require "./common.php";
+require "config.php";
+require "common.php";
 
-	$connection = new PDO($dsn, $username, $password, $options);
-	
-    if (isset($_POST['add'])) {
+$connection = new PDO($dsn, $username, $password, $options);
+
+if (isset($_POST['add'])) {
+    
+    try {
         
-        try {
-            
-            $new_event = array(
-                               "date" => $_POST['date'],
-                               "title"  => $_POST['title'],
-                               "start_time" => $_POST['start_time'],
-                               "end_time"  => $_POST['end_time'],
-                               "description"     => $_POST['description'],
-                               "priority"       => $_POST['priority'],
-                               "categories"  => $_POST['categories'],
-                               );
-            
-            $sql1 = sprintf(
-                           "INSERT INTO %s (%s) values (%s)",
-                           "Calendar",
-                           implode(", ", array_keys($new_event)),
-                           "'".implode("', '", array_values($new_event))."'"
+        $new_event = array(
+                           "date" => $_POST['date'],
+                           "title"  => $_POST['title'],
+                           "start_time" => $_POST['start_time'],
+                           "end_time"  => $_POST['end_time'],
+                           "description"     => $_POST['description'],
+                           "priority"       => $_POST['priority'],
+                           "categories"  => $_POST['categories'],
                            );
-
-            $state = $connection->prepare($sql1);
-            $state->execute($new_event);
-        } catch(PDOException $error) {
-            echo $sql1 . "<br>" . $error->getMessage();
-        }
-    header('Location:index.php');
         
+        $sql1 = sprintf(
+                       "INSERT INTO %s (%s) values (%s)",
+                       "Calendar",
+                       implode(", ", array_keys($new_event)),
+                       ":" . implode(", :", array_keys($new_event))
+                       );
+        
+        $state = $connection->prepare($sql1);
+        $state->execute($new_event);
+    } catch(PDOException $error) {
+        echo $sql1 . "<br>" . $error->getMessage();
     }
+header('Location:index.php');
+    
+}
 
 
-	try {
+try {
 
-	  $sql = "SELECT * FROM Calendar ORDER BY start_time ASC";
+  $sql = "SELECT * FROM Calendar ORDER BY start_time ASC";
 
-	  $statement = $connection->prepare($sql);
-	  $statement->execute();
+  $statement = $connection->prepare($sql);
+  $statement->execute();
 
-	  $events = $statement->fetchAll();
+  $events = $statement->fetchAll();
 
-	} catch(PDOException $error) {
-	  echo $sql . "<br>" . $error->getMessage();
-	}
+} catch(PDOException $error) {
+  echo $sql . "<br>" . $error->getMessage();
+}
 
-	$all_events = array();
-	  $counter = 0;
-	  foreach ($events as $item) {
-	    $all_events[$counter] = $item;
-	    $counter++;
-	  }
-
+  $all_events = array();
+  $counter = 0;
+  foreach ($events as $item) {
+    $all_events[$counter] = $item;
+    $counter++;
+  }
 
 
 if (isset($_POST['delete'])) {
@@ -71,19 +70,50 @@ if (isset($_POST['delete'])) {
     }
 header('Location:index.php');
 }
-?>
 
+if (isset($_POST['edit'])) {
+	try {
+
+    $update_event =[
+      "id123"        => $_POST['date123'],
+      "date123"        => $_POST['actualDate'],
+      "description123" => $_POST['description123'],
+      "start_time123"  => $_POST['start_time123'],
+      "end_time123"     => $_POST['end_time123'],
+      "title123"       => $_POST['title123'],
+      "priority123"  => $_POST['priority123'],
+      "categories123"      => $_POST['categories123']
+    ];
+
+    $sql2 = "UPDATE Calendar 
+            SET id = :id123,
+              date = :date123,
+              description = :description123, 
+              start_time = :start_time123, 
+              end_time = :end_time123, 
+              title = :title123, 
+              priority = :priority123, 
+              categories = :categories123 
+            WHERE id = :id123";
+  $statement = $connection->prepare($sql2);
+  $statement->execute($update_event);
+  } catch(PDOException $error) {
+        echo $sql2 . "<br>" . $error->getMessage();
+  }
+  header('Location:index.php');
+
+}
+?>
 
 
 <head>
 	<title>Calendar</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/note.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.js"></script>
 	<script src="https://unpkg.com/ionicons@4.5.1/dist/ionicons.js"></script>
 	<link href="https://unpkg.com/ionicons@4.5.1/dist/css/ionicons.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-
 
 
 </head>
@@ -207,7 +237,7 @@ header('Location:index.php');
 
 					<div id="textBox">
 						<label for="description">Description</label>
-						<textarea name="description" id="description" required maxlength="30"></textarea>
+						<textarea name="description" id="description" class="description" required maxlength="30"></textarea>
 					</div>
 
 					<input type="submit" name="add" value="Submit" id="add" class="buttons">
@@ -223,21 +253,22 @@ header('Location:index.php');
 			<div class = "popup">
 				<h2 id="event">Event</h2>
 				<form id="edit_form" method="post">
+					<input type="hidden" id="actualDate" name="actualDate" value="1">
 					<input type="hidden" id="date123" name="date123" value="1">
 					<div id="left">
 						<div class="time">
 							<label for="title">Title</label>
-							<input type="text" id="title123" name="title"  maxlength="15">
+							<input type="text" id="title123" name="title123" maxlength="15">
 						</div>
 
 						<div class="time">
 							<label for="start_time">Start Time</label>
-							<input type="time" name="start_time" id="start_time" >
+							<input type="time" name="start_time123" id="start_time123">
 						</div>
 					
 						<div class="time">
 							<label for="end_time">End Time</label>
-							<input type="time" name="end_time" id="end_time" >
+							<input type="time" name="end_time123" id="end_time123">
 						</div>
 					</div> <!-- end left -->
 
@@ -245,7 +276,7 @@ header('Location:index.php');
 					<div id="right">
 						<div class="dropdown">
 							<label for="categories">Category</label>
-								<select name="categories" >
+								<select name="categories123" id="categories123">
 						  			<option value="Work">Work</option>
 						  			<option value="Home">Home</option>
 						  			<option value="School">School</option>
@@ -253,7 +284,7 @@ header('Location:index.php');
 						</div>
 						<div class="dropdown">
 							<label for="priority">Priority</label>
-								<select name="priority" >
+								<select name="priority123" id= "priority123">
 						  			<option value="Low">Low</option>
 						  			<option value="Medium">Medium</option>
 						  			<option value="High">High</option>
@@ -263,9 +294,9 @@ header('Location:index.php');
 
 					<div id="textBox">
 						<label for="description">Description</label>
-						<textarea name="description" id="description" maxlength="30"></textarea>
+						<textarea name="description123" id="description123" class="description" maxlength="30"></textarea>
 					</div>
-					<input type="submit" name="submit" value="Edit" id="edit" class="buttons">
+					<input type="submit" name="edit" value="Edit" id="edit" class="buttons">
 					<input type="submit" name="delete" value="Delete" id="delete" class="buttons">
 					<input type="button" name="cancel" onClick="document.location.href= 'index.php';" class="buttons1" value="Cancel"/>
 				</form>
