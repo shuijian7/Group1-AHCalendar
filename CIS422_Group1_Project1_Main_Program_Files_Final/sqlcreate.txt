@@ -1,0 +1,20 @@
+The below function can be pasted in any mysql query in an already created database. The table will be named "Calendar", which creates auto incrementing unique id's for any new events that get added. The date field accepts info in "YYYY-DD-MM" format. The description field accepts a maximum of 30 character string and stores the description of a new event. The start_time and end_time fields holds the start time and end time in 24 hour format. The title field stores the title as character string that the user gives to a newly created event and has a max size of 15 characters. The priority field takes one of the three dropdown options, signifying the priority of an event, given to a user when creating a new event (low, medium, high) and stores them as character string with a max size of 10 characters. The categories field takes one of the three dropdown options (school, work, home) given to a user when creating a new event,signifying the category of an event, and stores them as character string with a max size of 10 characters.
+This file was written by Tyler Millan.
+Last Updated: Febuary 4th, 2019
+ 
+  `title` char(20) DEFAULT NULL,
+  `priority` char(20) DEFAULT NULL,
+  `categories` char(20) DEFAULT NULL,
+
+
+CREATE TABLE `Calendar` (
+  `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `description` char(30) NOT NULL DEFAULT '',
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `title` char(15) DEFAULT NULL,
+  `priority` char(10) DEFAULT NULL,
+  `categories` char(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;

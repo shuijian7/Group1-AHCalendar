@@ -1,0 +1,219 @@
+/*HTML, CSS, and Javascript derived from:
+https://udemy.com/2019-calendar-app-lets-build-it
+Author Jesse Cain
+Will use shorthand notation Derived from JC to represent the above source
+
+file written by Bryce Di Geronimo*/
+
+
+ /*Derived from JC line 9*/
+
+/*Last Updated: Febuary 4th, 2019*/
+ 
+/*body sets background wood image and image details*/
+body {
+    background-image: url("../img/woodBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-repeat: repeat;
+}
+
+/*main formatting for calendar div*/
+#cal {
+	width: 100%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+/*formatting for tds within calendar*/
+#cal tbody td {
+    height: 7.2vw;
+    width: 5.2vw;
+    font-size: 0.8vw;
+    font-weight: 600;
+    vertical-align: top;
+    padding: 0.5vw;
+    transition: font-size .4s ease;
+}
+
+/*formatting for day*/
+#cal .day {
+	font-size: 4.7vh;
+	font-weight: 300;
+    padding: 8px 0 5px;           
+    /*border-bottom: 1px solid white !important;*/
+}
+
+/*create solid black border*/
+.border {
+	border: 1px solid black
+}
+
+/*formatting for dialog box*/
+dialog {
+    height: 45%;
+    width: 33.333%;
+    border: none;
+    padding: 0;
+
+    /*background-color: rgba(29, 29, 29, 0.85);*/
+    position: fixed;
+}
+
+/*end of reference*/
+
+/*create inline div*/
+#title {
+	font-size: 4.7vh;
+    display: inline;
+}
+
+/*define icon size and padding left*/
+.icon {
+    font-size: 2.0vw;
+    padding-left: 2%;
+}
+
+/*formatting for right arrow symbol on top of application*/
+#rightArrow {
+    padding-left: 3%;
+}
+
+/*formatting for left arrow symbol on top of application*/
+#leftArrow {
+    padding-right: 3%;
+}
+
+/*inline divs*/
+#cal-month, #cal-year {
+    display: inline;
+}
+
+/*width of entire table*/
+#table {
+    width: 85%;
+}
+
+/*height of table row*/
+.height {
+    font-size: 4vh;
+}
+
+/*event title alignment*/
+#event {
+    text-align: center;
+}
+
+/*dropdown menu*/
+.time, .dropdown {
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+/*left div*/
+#left {
+    display: inline-block;
+    width: 50%;
+}
+
+/*right div*/
+#right {
+    display: inline-block;
+    width: 50%;
+    float: right;
+}
+
+/*description box*/
+.description {
+    height: 10vh;
+    width: 85%;
+}
+
+/*title format*/
+#title {
+    font-size: 1.9vh;
+    width: 60%;
+}
+
+/*text box format*/
+#textBox {
+    margin-left: 7.5%;
+    margin-bottom: 5%;
+}
+
+/*float buttons right*/
+.buttons {
+    float: right;
+}
+
+/*submit button*/
+#submit {
+    margin-right: 15%;
+}
+
+/*margin bottom*/
+.hello {
+    font-size: 2vh;
+    margin-bottom: 5%;
+
+}
+
+/*create space left*/
+.time {
+    margin-left: 10%;
+}
+
+/*float btn right*/
+.btn {
+    height: 2vh;
+    float: right;
+}
+
+/*display center*/
+.displayTable td {
+    text-align: center;
+}
+
+/*height and width*/
+#display1 {
+    height: 24%;
+    width: 47%;
+}
+
+/*height*/
+#display1 tbody td {
+     height: 7vh;
+}
+
+/*width auto*/
+.divCover {
+    width: auto;
+    display: inline-block;
+    text-align: center;
+    margin-left: 2%;
+}
+
+/*center*/
+#make-note2 {
+    text-align: center;
+}
+
+/*second form*/
+.secondForm {
+    margin-right: 2%;
+    margin-top: 6%;
+}
+
+/*bold titles*/
+.first {
+    font-weight: bold;
+}
+
+/*max character length*/
+.paragraph {
+    width: 10ch;
+}
