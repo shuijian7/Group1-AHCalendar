@@ -1,3 +1,11 @@
+/**
+ * *********************************************
+ * Testing for for Jest to test file main.js   *
+ * CIS422 Winter 2019 Group1                   *
+ * Author: Jarvis Dong                         *
+ * *********************************************
+ */
+
 const { removeClass } = require('../js/main');
 const { removeAttribute } = require('../js/main');
 

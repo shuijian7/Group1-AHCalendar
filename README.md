@@ -12,6 +12,111 @@ Simple Calendar application that allows users to track their tasks provides orga
 - Bryce Di Geronimo
 - Haojun "Jarvis" Dong
 
+
+
+### Code Structure
+
+Group1-Calendar
+├── Documents
+│   ├── Documentation\ Drafts
+│   ├── Live\ Project\ Plan.docx
+│   ├── Live\ SDS.docx
+│   ├── Live\ SRS.docx
+│   └── Untitled\ document.docx
+├── README.md
+├── calendar
+│   ├── Show_event.php
+│   ├── connectdata.txt
+│   ├── create.php
+│   ├── css
+│   ├── delete.php
+│   ├── index.php
+│   ├── templates
+│   └── test.php
+├── common.php
+├── config.php
+├── connect.php
+├── connection.txt
+├── css
+│   ├── note.css
+│   └── style.css
+├── img
+│   ├── Documents
+│   └── woodBackground.jpg
+├── index.php
+├── install.php
+├── js
+│   ├── data.js
+│   ├── date.js
+│   ├── main.js
+│   ├── modal.js
+│   ├── note.js
+│   └── start.js
+├── node_modules(hide)
+├── package-lock.json
+├── package.json
+├── sqlcreate.txt
+├── templates
+│   ├── footer.php
+│   └── header.php
+├── test
+│   ├── data.test.js
+│   ├── date.test.js
+│   ├── main.test.js
+│   └── note.test.js
+└── test.php
+
+399 directories, 36 files
+
+### User Guide
+
+#### 1. How to run the calendar
+
+1. The application works on MacOS10.13 or later, Windows10 1709 or later, any distro Linux with kernel 4.0 or newer. Make sure your computer runs one of them.
+
+2. The application only works flawlessly on Google Chrome latest version. If you haven't installed yet, please click [here](https://www.google.com/chrome/) to install.
+3. Open the application by clicking [here](http://ec2-18-236-175-93.us-west-2.compute.amazonaws.com/index.php)
+
+#### 2. How to use the calendar
+
+Once you clicked and jumped into calendar, it will have a interface with current month displayed.
+
+You can do:
+
+- ##### 		Navigate between the months
+
+  - Left click the left arrow to go to the next month
+  - Left click the right arrow to go to the previous month	
+
+- ##### 		Add an event
+
+  - To add an event, choose a day block, left click an empty area, and a form box will pop up(required)
+  - Feel free to fill anything in title blank but only limited in 20 English letters.(required)
+  - Fill the event start time and end time by left clicking spin box up/down buttons or manully type the time digits.(required)
+  - There are 3 categories work, home, school to choose to speicfy what kind of event are you adding. (optional)
+  - There are 3 priority low, medium, high to choose to speicfy the priority level of the event are you adding. (optional)
+  - The description blank is for your adding some notes for the event you are adding.(optional)
+
+- #####		Check your event
+
+  - To check an event you've added, left click the event title or time that you want to check. A box will popup.
+  - It will present your event title, start time, end time, description, priority and catergories in order.
+  - To close and continue use, click button "Close".
+
+- ##### 		Delete an event
+
+  - To delete an event you've added, left click the pencil shape button. A box will pop up.
+  - If you are regret and don't want delete this event, left click button "Cancel".(optional)
+  - Click the button "Delete".
+
+- #####		Edit an event
+
+  - To edit an event you've added, left click the pencil shape button. A box will pop up.
+  - Change the form and make it what you want. 
+  - If you are regret and don't want edit this event, left click button "Cancel".(optional)
+  - Click the button "Edit".
+
+
 ### To-do List
 
 ##### Absolutely Required Functional

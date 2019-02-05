@@ -1,3 +1,11 @@
+/**
+ * *********************************************
+ * Testing for for Jest to test file date.js   *
+ * CIS422 Winter 2019 Group1                   *
+ * Author: Jarvis Dong                         *
+ * *********************************************
+ */
+
 const {getUID} = require('../js/date');
 const {previousMonth} = require('../js/date');
 const {fillPartialMonthData} = require('../js/date');

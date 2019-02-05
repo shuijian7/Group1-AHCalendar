@@ -1,3 +1,11 @@
+/**
+ * *********************************************
+ * Testing for for Jest to test file data.js   *
+ * CIS422 Winter 2019 Group1                   *
+ * Author: Jarvis Dong                         *
+ * *********************************************
+ */
+
 const month_data = require('../js/data');
 const data = require('../js/data');
 
