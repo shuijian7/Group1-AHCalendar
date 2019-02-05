@@ -134,7 +134,7 @@ This is a simple step if Npm.js is installed. Run command in terminal:
 npm install --save-dev jest
 ```
 
-#####3. Test Project
+##### 3. Test Project
 
 In directory *Group1-Calendar*, run command in terminal:
 
