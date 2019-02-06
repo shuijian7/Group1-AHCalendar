@@ -1,11 +1,20 @@
-CREATE TABLE `Calendar` (
-  `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
-  `date` date NOT NULL,
-  `description` char(20) NOT NULL DEFAULT '',
-  `start_time` time NOT NULL,
-  `end_time` time NOT NULL,
+This file was written by Shuijian Zhang.
+It's informations for temporary DB
+
+
   `title` char(20) DEFAULT NULL,
   `priority` char(20) DEFAULT NULL,
   `categories` char(20) DEFAULT NULL,
+
+
+CREATE TABLE `Calendar` (
+  `id` int(20) unsigned NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `description` char(30) NOT NULL DEFAULT '',
+  `start_time` time NOT NULL,
+  `end_time` time NOT NULL,
+  `title` char(15) DEFAULT NULL,
+  `priority` char(10) DEFAULT NULL,
+  `categories` char(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
