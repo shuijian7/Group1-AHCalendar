@@ -9,6 +9,9 @@
  * ********************************************
  */
 
+/*  this two lines are importing Objects
+    month_data and data as Objects from file data.js
+*/
 const month_data = require('../js/data');
 const data = require('../js/data');
 
@@ -66,6 +69,10 @@ test("check first 12 month_data data correctness", () => {
     const month_data10 = month_data.month_data[9];
 
 
+    /* 
+    expect to see if first 12 items in Object month_data
+    match exactly the same as we want
+    */
     expect(month_data1).toEqual(
         {   
             "month_index": 11,
@@ -160,24 +167,24 @@ test("year 2020 should be 2021 if month_index is 0", () => {
     expect(month_data.month_data[37]["year"]).toBe(2021);
 });
 
-test("check all the starting day", () => {
+test("check all the starting day for each month of each year", () => {
     starting_day = new Array(38); 
     for (var i=0; i<38;i++) {
         starting_day[i] = month_data.month_data[i]["starting_day"];
     }
-    expect(starting_day).toBeInstanceOf(Array);
+    expect(starting_day).toBeInstanceOf(Array); //to check if new data structure is construncted right
     expect(starting_day).toEqual([5,1,4,4,0,2,5,0,3,6,1,
                                   4,6,2,5,5,1,3,6,1,4,7,
                                   2,5,0,4,6,0,3,5,1,3,6,
                                   2,4,0,2,5]);
 });
 
-test("check all year value in month_data", () => {
+test("check all year value for each year in month_data", () => {
     year = new Array(38);
     for (var i=0; i<38;i++) {
         year[i] = month_data.month_data[i]["year"];
     }
-    expect(year).toBeInstanceOf(Array);
+    expect(year).toBeInstanceOf(Array); //to check if new data structure is construncted right
     expect(year).toEqual([2017,2018,2018,2018,2018,2018,2018,2018,
                           2018,2018,2018,2018,2018,2019,2019,2019,
                           2019,2019,2019,2019,2019,2019,2019,2019,

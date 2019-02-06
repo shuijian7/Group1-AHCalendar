@@ -9,6 +9,11 @@
  * ********************************************
  */
 
+
+/*  this two lines are importing functions
+    removeClass and removeAttribute as Objects
+    from file main.js
+*/
 const { removeClass } = require('../js/main');
 const { removeAttribute } = require('../js/main');
 
@@ -25,9 +30,3 @@ test("check removeAttribute behavior/property", () => {
     expect(removeAttribute).toHaveReturned;
     expect(removeAttribute).toHaveBeenCalled;
 });
-
-// test("removeClass should remove class from elem", () => {
-// });
-
-// test("removeAttribute should remove attribute from elem", () => {
-// });

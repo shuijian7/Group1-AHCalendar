@@ -1,7 +1,0 @@
-<?xml version="1.0" ?>
-<dataset>
-    <Calendar date="2019-02-07" description="taken glasses" start_time="17:15:23" end_time = "18:15:23" title = "reminder" priority = "Low" categories = "High"/>
-    <Calendar date="2019-02-08" description="wear hat" start_time="17:15:23" end_time = "18:15:23" title = "reminder" priority = "High" categories = "High"/>
-    <Calendar date="2019-02-10" description="taken shoes" start_time="17:15:23" end_time = "18:15:23" title = "reminder" priority = "Low" categories = "High"/>
-    <Calendar date="2019-02-11" description="check email" start_time="15:15:23" end_time = "19:15:23" title = "reminder" priority = "Low" categories = "High"/>
-</dataset>

@@ -9,6 +9,11 @@
  * ********************************************
  */
 
+ /*  this 6 lines are importing functions
+    getUID, previousMonth, fillPartialMonthData,
+    nextMonth, updateCurrentDates, appendSpriteToCellAndTooltip
+    as Objects from file date.js
+*/
 const {getUID} = require('../js/date');
 const {previousMonth} = require('../js/date');
 const {fillPartialMonthData} = require('../js/date');
@@ -67,6 +72,6 @@ test("getUID should generate date ID yyyy-mm-dd", () => {
     const id4 = getUID(9,2018,7);
     expect(id1).toBe("2019-05-30");
     expect(id2).toBe("2020-10-05");
-    expect(id3).toBe("2020-00-03");
+    expect(id3).toBe("2020-00-03"); //it's designed to have month string to be 0 when month=12
     expect(id4).toBe("2018-09-07");
 });

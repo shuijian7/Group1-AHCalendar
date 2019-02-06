@@ -8,6 +8,10 @@
  * https://github.com/shuijian7/Group1-Calendar/blob/master/Documents/Testing%20Documentation.pdf              
  * ********************************************
  */
+
+ /* this two lines are importing functions
+    dayClicked and openPostIt as Object from file note.js
+*/
 const { dayClicked } = require('../js/note');
 const { openPostIt } = require('../js/note');
 
