@@ -1,0 +1,179 @@
+body {
+    background-image: url("../img/woodBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-repeat: repeat;
+}
+
+#cal {
+	width: 100%;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#cal tbody td {
+    height: 7.2vw;
+    width: 5.2vw;
+    font-size: 0.8vw;
+    font-weight: 600;
+    vertical-align: top;
+    padding: 0.5vw;
+    transition: font-size .4s ease;
+}
+
+#cal .day {
+	font-size: 4.7vh;
+	font-weight: 300;
+    padding: 8px 0 5px;           
+    /*border-bottom: 1px solid white !important;*/
+}
+
+.border {
+	border: 1px solid black
+}
+
+#title {
+	font-size: 4.7vh;
+    display: inline;
+}
+
+.icon {
+    font-size: 2.0vw;
+    padding-left: 2%;
+}
+
+#rightArrow {
+    padding-left: 3%;
+}
+
+#leftArrow {
+    padding-right: 3%;
+}
+
+#cal-month, #cal-year {
+    display: inline;
+}
+
+#table {
+    width: 85%;
+}
+
+.height {
+    font-size: 4vh;
+}
+
+#event {
+    text-align: center;
+}
+
+dialog {
+    height: 50%;
+    width: 33.333%;
+    border: none;
+    padding: 0;
+
+    /*background-color: rgba(29, 29, 29, 0.85);*/*/
+    position: fixed;
+}
+
+.time, .dropdown {
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+#left {
+    display: inline-block;
+    width: 50%;
+}
+
+#right {
+    display: inline-block;
+    width: 50%;
+    float: right;
+}
+
+#description {
+    height: 10vh;
+    width: 85%;
+}
+
+#title {
+    font-size: 1.9vh;
+    width: 60%;
+}
+
+#textBox {
+    margin-left: 7.5%;
+    margin-bottom: 5%;
+}
+
+.buttons {
+    float: right;
+}
+
+#submit {
+    margin-right: 15%;
+}
+
+.hello {
+    font-size: 2vh;
+    margin-bottom: 5%;
+
+}
+
+.time {
+    margin-left: 10%;
+}
+
+.btn {
+    float: right;
+}
+
+.displayTable td {
+    text-align: center;
+}
+
+#display1 {
+    height: 24%;
+    width: 47%;
+}
+
+#display1 tbody td {
+     height: 7vh;
+}
+
+/*.inline {
+    display: inline;
+    align-content: center;
+    margin-left: 4%
+}*/
+
+.divCover {
+    width: auto;
+    display: inline-block;
+    text-align: center;
+    margin-left: 2%;
+    /*overflow: auto;*/
+
+}
+
+#make-note2 {
+    text-align: center;
+}
+
+.secondForm {
+    margin-right: 2%;
+    margin-top: 6%;
+}
+
+.first {
+    font-weight: bold;
+}
+
+.paragraph {
+    width: 10ch;
+}
