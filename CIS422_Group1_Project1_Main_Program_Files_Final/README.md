@@ -16,52 +16,53 @@ Simple Calendar application that allows users to track their tasks provides orga
 
 #### 1. How to run the calendar
 
-1. The application works on MacOS10.13 or later, Windows10 1709 or later, any distro Linux with kernel 4.0 or newer. Make sure your computer runs one of them.
+1. The application works on MacOS10.13 or later, Windows10 1709 or later, any distro Linux with kernel 4.0 or newer. Make sure your computer runs one of them. 
 
-2. The application only works flawlessly on Google Chrome latest version. If you haven't installed yet, please click [here](https://www.google.com/chrome/) to install.
+2. The application only works flawlessly on Google Chrome's latest version. If you haven't installed it yet, please click [here](https://www.google.com/chrome/) to install.
 3. Open the application by clicking [here](http://ec2-18-236-175-93.us-west-2.compute.amazonaws.com/index.php)
 
 #### 2. How to use the calendar
 
-Once you clicked and jumped into calendar, it will have a interface with current month displayed.
-
-You can do:
+Once you have opened the application, it will display the user interface with current month displayed. You can:
 
 - ##### 		Navigate between the months
 
-  - Left click the left arrow to go to the next month
-  - Left click the right arrow to go to the previous month	
+  - Left click the left arrow to go to the previous month 
+  - Left click the right arrow to go to the next month 
+
 
 - ##### 		Add an event
 
-  - To add an event, choose a day block, left click an empty area, and a form box will pop up(required)
-  - Feel free to fill anything in title blank but only limited in 20 English letters.(required)
-  - Fill the event start time and end time by left clicking spin box up/down buttons or manully type the time digits.(required)
-  - There are 3 categories work, home, school to choose to speicfy what kind of event are you adding. (optional)
-  - There are 3 priority low, medium, high to choose to speicfy the priority level of the event are you adding. (optional)
-  - The description blank is for your adding some notes for the event you are adding.(optional)
+  - To add an event, choose a day block, left click an empty area, and a form box will pop up(required) 
+  - Feel free to fill anything in title blank but only limited in 15 English letters (required).
+  - Fill in the event start time and end time by left clicking spin box up/down buttons or manually type in the digits (required).
+  - There are 3 categories. One for work, home, and school. Please specify what kind of event are you adding (required).
+  - There are 3 priorities. One for low, medium, and high. Please specify the priority level of the event that you are adding (required).
+  - The description box is for adding a description of the event(required).
+
 
 - #####		Check your event
 
-  - To check an event you've added, left click the event title or time that you want to check. A box will popup.
-  - It will present your event title, start time, end time, description, priority and catergories in order.
-  - To close and continue use, click button "Close".
+ - To check an event you've added, left click the event title or time that you want to check. A pop up box will appear.
+ - It will present your event title, start time, end time, description, priority and categories in order. 
+ - To close and continue use, click the "Close" button.
+
 
 - ##### 		Delete an event
 
-  - To delete an event you've added, left click the pencil shape button. A box will pop up.
-  - If you are regret and don't want delete this event, left click button "Cancel".(optional)
-  - Click the button "Delete".
+- To delete an event you've added, left click the pencil shape button. A pop up box will appear.
+- If you don't want to delete this event, click the "Cancel" button.
+- Click the "Delete" button to delete the event.
 
 - #####		Edit an event
 
-  - To edit an event you've added, left click the pencil shape button. A box will pop up.
-  - Change the form and make it what you want. 
-  - If you are regret and don't want edit this event, left click button "Cancel".(optional)
-  - Click the button "Edit".
+  - To edit an event you've added, left click the pencil shape button. A pop up box will appear with all your event info      repopulated in the form.
+  - You can make any edits to the events information.
+  - If you want to cancel your edits, click the "Cancel" button.
+  - Click the "Edit" button
 
 
-### To-do List
+
 
 ##### Absolutely Required Functional
 
